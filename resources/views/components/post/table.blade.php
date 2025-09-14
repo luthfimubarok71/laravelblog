@@ -24,7 +24,7 @@
                     class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                     <button type="button" id="createProductModalButton" data-modal-target="createProductModal"
                         data-modal-toggle="createProductModal"
-                        class="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                        class="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 cursor-pointer">
                         <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path clip-rule="evenodd" fill-rule="evenodd"
@@ -76,7 +76,7 @@
                                             <li>
                                                 <button type="button" data-modal-target="updateProductModal"
                                                     data-modal-toggle="updateProductModal"
-                                                    class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
+                                                    class="flex w-full items-center py-2 px-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
                                                     <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg"
                                                         viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                         <path
@@ -88,8 +88,9 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <button type="button" data-modal-target="readProductModal"
-                                                    data-modal-toggle="readProductModal"
+                                                <a href="/dashboard/{{ $post->slug }}"
+                                                    data-modal-target="readProductModal1"
+                                                    data-modal-toggle="readProductModal1"
                                                     class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
                                                     <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg"
                                                         viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -97,13 +98,13 @@
                                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                                             d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" />
                                                     </svg>
-                                                    Preview
-                                                </button>
+                                                    Show Post
+                                                </a>
                                             </li>
                                             <li>
                                                 <button type="button" data-modal-target="deleteModal"
                                                     data-modal-toggle="deleteModal"
-                                                    class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 text-red-500 dark:hover:text-red-400">
+                                                    class="flex w-full items-center py-2 px-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 text-red-500 dark:hover:text-red-400">
                                                     <svg class="w-4 h-4 mr-2" viewbox="0 0 14 15" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                                         <path fill-rule="evenodd" clip-rule="evenodd"
