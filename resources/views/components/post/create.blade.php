@@ -4,7 +4,8 @@
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Add Post</h3>
     </div>
     <!-- Modal body -->
-    <form action="#">
+    <form action="/dashboard" method="POST">
+        @csrf
         <div class="mb-4">
             <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
             <input type="text" name="title" id="title"
