@@ -52,4 +52,17 @@
     ::file-selector-button {
         border-color: var(--color-gray-200, currentcolor);
     }
+
+    button,
+    [role="button"],
+    [type="button"],
+    [type="submit"],
+    [type="reset"] {
+        cursor: pointer;
+    }
+
+    button:disabled,
+    [disabled] {
+        cursor: not-allowed;
+    }
 }
