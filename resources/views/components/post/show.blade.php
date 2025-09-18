@@ -25,7 +25,7 @@
                 </address>
 
                 <div class="flex gap-4 mb-4 items-center">
-                    <button type="button"
+                    <a href="/dashboard/{{ $post->slug }}/edit"
                         class="text-white inline-flex items-center bg-primary-700 cursor-pointer hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         <svg aria-hidden="true" class="mr-1 -ml-1 w-5 h-5" fill="currentColor" viewbox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@
                                 clip-rule="evenodd" />
                         </svg>
                         Edit
-                    </button>
+                    </a>
                     <button type="button" data-modal-target="deleteModal-{{ $post->id }}"
                         data-modal-toggle="deleteModal-{{ $post->id }}"
                         class="inline-flex items-center text-white bg-red-600 hover:bg-red-700 cursor-pointer focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">
