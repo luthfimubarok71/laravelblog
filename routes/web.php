@@ -36,6 +36,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/dashboard', [PostController::class, 'store']);
     Route::get('/dashboard/create', [PostController::class, 'create']);
     Route::delete('/dashboard/{post:slug}', [PostController::class, 'destroy']);
+    Route::get('/dashboard/{post:slug}/edit', [PostController::class, 'edit']);
+    Route::patch('/dashboard/{post:slug}', [PostController::class, 'update']);
     Route::get('/dashboard/{post:slug}', [PostController::class, 'show']);
 });
 
