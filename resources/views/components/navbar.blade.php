@@ -25,8 +25,8 @@
                                 class="relative flex max-w-xs items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer">
                                 <span class="absolute -inset-1.5"></span>
                                 <span class="sr-only">Open user menu</span>
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt=""
+                                <img src="{{ Auth::user()->avatar ? asset(Auth::user()->avatar) : asset('img/default-avatar.png') }}"
+                                    alt="{{ Auth::user()->name }}"
                                     class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
                                 <div class="ml-3 text-sm text-gray-300">{{ Auth::user()->name }}</div>
                                 <div class="ms-1 text-gray-300">
@@ -96,7 +96,7 @@
             @if (Auth::check())
                 <div class="flex items-center px-5">
                     <div class="shrink-0">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        <img src="{{ Auth::user()->avatar ? asset(Auth::user()->avatar) : asset('img/default-avatar.png') }}"
                             alt="{{ Auth::user()->name }}"
                             class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
                     </div>
