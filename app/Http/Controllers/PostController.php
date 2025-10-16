@@ -46,11 +46,12 @@ class PostController extends Controller
         Validator::make($request->all(), [
             'title' => 'required|min:4|max:200|unique:posts',
             'category_id' => 'required',
-            'body' => 'required'
+            'body' => 'required|min:20'
         ], [
             'title.required' => 'Field :attribute is required',
             'category_id.required' => 'Field :attribute is required',
-            'body.required' => 'Field :attribute is required'
+            'body.required' => 'Field :attribute is required',
+            'body.min' => 'Field :attribute must be at least :min characters'
         ], [
             'category_id' => 'category'
         ])->validate();
@@ -90,7 +91,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|min:4|max:200|unique:posts,title,' . $post->id,
             'category_id' => 'required',
-            'body' => 'required'
+            'body' => 'required|min:20'
         ]);
 
         $post->update([
