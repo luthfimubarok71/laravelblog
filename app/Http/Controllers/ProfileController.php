@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
@@ -24,31 +25,56 @@ class ProfileController extends Controller
 
     /**
      * Update the user's profile information.
+     *
+     * @param \App\Http\Requests\ProfileUpdateRequest|\Illuminate\Http\Request $request
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        // dd($request->all());
 
         // $request->user()->fill($request->validated());
-
         $validated = $request->validated();
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
 
-        if ($request->hasFile('avatar')) {
+        // if ($request->hasFile('avatar')) {
+        //     if (!empty($request->user()->avatar)) {
+        //         Storage::disk('public')->delete($request->user()->avatar);
+        //     }
+        //     $avatarPath = $request->file('avatar')->store('img', 'public');
+        //     // $request->user()->avatar = '/storage/' . $avatarPath;
+        //     $validated['avatar'] = $avatarPath;
+        // }
+
+        if ($request->avatar) {
             if (!empty($request->user()->avatar)) {
                 Storage::disk('public')->delete($request->user()->avatar);
             }
-            $avatarPath = $request->file('avatar')->store('img', 'public');
-            // $request->user()->avatar = '/storage/' . $avatarPath;
-            $validated['avatar'] = $avatarPath;
+
+            $newFilename = Str::after($request->avatar, 'tmp/');
+            Storage::disk('public')->move($request->avatar, 'img/' . $newFilename);
+
+            $validated['avatar'] = 'img/' . $newFilename;
         }
 
         $request->user()->update($validated);
         // $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    }
+
+    /**
+     * Handle avatar upload.
+     */
+    public function upload(Request $request)
+    {
+        if ($request->hasFile('avatar')) {
+            $path = $request->file('avatar')->store('tmp', 'public');
+        }
+
+        return $path;
     }
 
     /**
