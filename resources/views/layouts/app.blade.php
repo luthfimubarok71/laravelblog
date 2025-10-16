@@ -14,6 +14,9 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- CSS stacks --}}
+    @stack('styles')
 </head>
 
 <body class="font-sans antialiased">
@@ -35,6 +38,8 @@
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    {{-- JS stacks --}}
+    @stack('scripts')
 </body>
 
 </html>
